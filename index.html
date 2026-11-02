@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CuadraYa - Toma el control de tu dinero</title>
+    <link rel="shortcut icon" href="assets/icono_app.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="vanta-bg">
+        <div class="content-wrapper">
+            <header>
+                <div class="logo-placeholder">CuadraYa</div>
+
+                <section>
+                    <a href="characteristics.html">Características</a>
+                    <a href="price.html">Precios</a>
+                    <a href="support.html">Soporte</a>
+                    <a href="https://github.com/mtovardev/CuadraYa-App/releases/latest/download/app-release.apk" class="download-btn">Descargar App</a>
+                </section>
+            </header>
+
+            <section class="hero">
+                <div class="title">
+                    <h1>Gestiona tu comercio desde tu celular</h1>
+                    <span>La forma más sencilla de gestionar tu comercio desde CuadraYa, brindando y gestionando tu inventario en tiempo real en cualquier momento desde el móvil.</span>
+                    <div class="badges">
+                        <p class="badge">Totalmente gratis con planes personalizados.</p>
+                        <p class="badge">Dispositivos Compatibles: Android.</p>
+                        <p class="badge">Proximamente: PC.</p>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="assets/promotion.png" alt="Promoción de CuadraYa">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section id="features" class="features-section">
+        <div class="features-container">
+            <div class="features-title">
+                <h2>Todo lo que necesitas para crecer</h2>
+                <p>Herramientas diseñadas para simplificar tu día a día y potenciar tu negocio.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Inventario en Tiempo Real</h3>
+                    <p>Controla tus existencias al instante. Evita pérdidas y asegura que nunca te quedes sin tus productos más vendidos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Reportes Inteligentes</h3>
+                    <p>Obtén informes claros de ventas y ganancias. Toma decisiones basadas en datos y no en suposiciones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Gestión desde el Móvil</h3>
+                    <p>Lleva tu negocio en el bolsillo. Administra todo desde tu smartphone estés donde estés, sin necesidad de una PC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>CuadraYa © 2026 • Todos los derechos reservados. Desarrollado por Old Studio.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+    
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x0f172a,
+            points: 10.00,
+            maxDistance: 25.00,
+            spacing: 20.00
+        });
+    </script>
+</body>
+</html>
