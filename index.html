@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuadraYa - Toma el control de tu comercio</title>
+    <title>CuadraYa - Sistema de Gestión de Inventario POS</title>
     <link rel="shortcut icon" href="assets/icono_app.png" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CuadraYa - Gestiona tu comercio desde el celular">
-    <meta property="og:description" content="La forma más sencilla de gestionar tu inventario y ventas en tiempo real. ¡Totalmente gratis!">
+    <meta property="og:title" content="CuadraYa - Disponible para Android, Windows y Linux">
+    <meta property="og:description" content="Sistema de inventario y punto de venta POS multiplataforma. Controla tus ventas en PC y móvil en tiempo real u offline.">
     <meta property="og:url" content="https://mtovardev.github.io/CuadraYaWeb/">
     <meta property="og:image" content="https://mtovardev.github.io/CuadraYaWeb/assets/bannerdefault.png">
     <meta property="og:site_name" content="CuadraYa">
@@ -27,18 +28,28 @@
                     <a href="characteristics.html">Características</a>
                     <a href="price.html">Precios</a>
                     <a href="support.html">Soporte</a>
-                    <a href="https://github.com/mtovardev/CuadraYa-App/releases/latest/download/app-release.apk" class="download-btn">Descargar App</a>     
+                    <a href="#descargar" class="download-btn">Descargar</a>     
                 </section>
             </header>
 
             <section class="hero">
                 <div class="title">
-                    <h1>Gestiona tu comercio desde tu celular</h1>
-                    <span>La forma más sencilla de gestionar tu comercio desde CuadraYa, brindando y gestionando tu inventario en tiempo real en cualquier momento desde el móvil.</span>
+                    <h1>Gestiona tu comercio en Android, Windows y Linux</h1>
+                    <span>La solución definitiva de punto de venta (POS) y control de inventario. Vende desde tu móvil Android o agiliza el mostrador en tu computadora con Windows y Linux con soporte para tickets fiscales, gaveta de dinero y modo offline.</span>
                     <div class="badges">
-                        <p class="badge">Totalmente gratis con planes personalizados.</p>
-                        <p class="badge">Dispositivos Compatibles: Android.</p>
-                        <p class="badge">Proximamente: PC.</p>
+                        <p class="badge">✨ Totalmente gratis con planes personalizados.</p>
+                        <p class="badge">💻 PC: Windows y Linux (Offline-First).</p>
+                        <p class="badge">📱 Móvil: Android (Smartphones & Tablets).</p>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <a href="#descargar" class="download-btn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 1.05rem; padding: 14px 28px; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Descargar para tu Dispositivo
+                        </a>
                     </div>
                 </div>
 
@@ -53,7 +64,7 @@
         <div class="features-container">
             <div class="features-title">
                 <h2>Todo lo que necesitas para crecer</h2>
-                <p>Herramientas diseñadas para simplificar tu día a día y potenciar tu negocio.</p>
+                <p>Herramientas diseñadas para simplificar tu día a día y potenciar tu negocio en cualquier dispositivo.</p>
             </div>
             
             <div class="features-grid">
@@ -64,13 +75,13 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>Reportes Inteligentes</h3>
-                    <p>Obtén informes claros de ventas y ganancias. Toma decisiones basadas en datos y no en suposiciones.</p>
+                    <h3>Reportes Financieros y Cierre Z</h3>
+                    <p>Obtén arqueo a ciegas, cortes parciales (X), cierres definitivos (Z) y exportación de métricas directas a Excel.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Gestión desde el Móvil</h3>
-                    <p>Lleva tu negocio en el bolsillo. Administra todo desde tu smartphone estés donde estés, sin necesidad de una PC.</p>
+                    <div class="feature-icon">💻📱</div>
+                    <h3>Multiplataforma y Offline</h3>
+                    <p>Opera desde Android en la calle o desde tu PC (Windows y Linux) con apertura de gaveta de dinero y tickets térmicos.</p>
                 </div>
             </div>
         </div>
@@ -100,5 +111,6 @@
             spacing: 20.00
         });
     </script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
