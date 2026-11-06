@@ -10,12 +10,12 @@
     const REPO_ANDROID = 'mtovardev/CuadraYa-App';
 
     let downloadUrls = {
-        windows: `https://github.com/${REPO_UPDATE}/releases/download/v0.2.2/CuadraYa_0.2.2_x64-setup.exe`,
-        linux: `https://github.com/${REPO_UPDATE}/releases/download/v0.2.2/CuadraYa_0.2.2_amd64.deb`,
+        windows: `https://github.com/${REPO_UPDATE}/releases/download/v0.2.3/CuadraYa_0.2.3_x64-setup.exe`,
+        linux: `https://github.com/${REPO_UPDATE}/releases/download/v0.2.3/CuadraYa_0.2.3_amd64.deb`,
         android: `https://github.com/${REPO_ANDROID}/releases/latest/download/app-release.apk`
     };
 
-    let latestDesktopVersion = 'v0.2.2';
+    let latestDesktopVersion = 'v0.2.3';
 
     // HTML del Modal
     const modalHTML = `
