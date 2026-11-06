@@ -97,6 +97,106 @@
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
 
+        .platform-toggle-container {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 40px;
+            max-width: 520px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .platform-toggle-btn {
+            flex: 1;
+            padding: 12px 18px;
+            border: none;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .platform-toggle-btn.active {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .pricing-grid-pc {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        @media (min-width: 680px) {
+            .pricing-grid-pc {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .pricing-grid-pc {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        }
+
+        .pricing-card.pc-featured {
+            background: linear-gradient(145deg, rgba(30, 58, 138, 0.45) 0%, rgba(37, 99, 235, 0.18) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.55);
+            box-shadow: 0 0 35px rgba(37, 99, 235, 0.25);
+        }
+
+        .pricing-card.pc-lifetime {
+            background: linear-gradient(145deg, rgba(88, 28, 135, 0.45) 0%, rgba(147, 51, 234, 0.18) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.55);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.25);
+        }
+
+        .pricing-card.pc-lifetime .price {
+            color: #d8b4fe;
+        }
+
+        .badge.lifetime-badge {
+            background: linear-gradient(90deg, #c084fc, #9333ea);
+            color: white;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .badge.pc-badge {
+            background: rgba(37, 99, 235, 0.2);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge.max-badge {
+            background: linear-gradient(90deg, #06b6d4, #0284c7);
+            color: white;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
+        }
+
+        .btn-lifetime {
+            background: linear-gradient(90deg, #c084fc, #9333ea);
+            color: white;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.35);
+        }
+
+        .btn-lifetime:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(147, 51, 234, 0.5);
+        }
+
         .pricing-title {
             font-size: 1.8rem;
             color: white;
@@ -354,23 +454,148 @@
         <main class="content-wrapper">
             <div class="section-header">
                 <h1>Planes a tu medida</h1>
-                <p>Empieza gratis y escala cuando tu negocio lo necesite.</p>
+                <p>Elige la plataforma que mejor se adapte a tu negocio: Punto de Venta para PC o aplicación Móvil.</p>
+            </div>
+
+            <!-- Platform Selector Toggle -->
+            <div class="platform-toggle-container">
+                <button class="platform-toggle-btn active" id="btn-toggle-pc" onclick="switchPricingPlatform('pc')">
+                    💻 Versión para PC (Windows / Linux)
+                </button>
+                <button class="platform-toggle-btn" id="btn-toggle-mobile" onclick="switchPricingPlatform('mobile')">
+                    📱 Versión Móvil (Android)
+                </button>
             </div>
 
             <div class="pricing-section">
-                <div class="pricing-grid">
+                <!-- GRID 1: PC Version Plans -->
+                <div class="pricing-grid-pc" id="pricing-pc">
+                    <!-- PC Plan 1: Bodega / Emprendedor -->
+                    <div class="pricing-card">
+                        <span class="badge pc-badge">Comercio Básico</span>
+                        <h2 class="pricing-title">Plan Emprendedor</h2>
+                        <p class="pricing-subtitle">Para pequeños comercios, bodegas y negocios que inician en PC</p>
+                        
+                        <div class="price-container">
+                            <span class="price">$10</span>
+                            <span class="frequency">/ mes</span>
+                        </div>
+                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">(o plan anual con descuento: $8.50/mes)</p>
 
+                        <button class="btn-plan btn-basic" onclick="openModal('Plan Emprendedor (PC)')">Adquirir Plan</button>
+                        <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
+                        <div class="divider"></div>
+
+                        <ul class="feature-list">
+                            <li><span class="icon check">✓</span> Punto de Venta POS ultra-rápido en Bs y $</li>
+                            <li><span class="icon check">✓</span> Catálogo de hasta 300 productos con control de stock</li>
+                            <li><span class="icon check">✓</span> Módulo de Clientes y cuentas por cobrar (Fiados)</li>
+                            <li><span class="icon check">✓</span> Tasa oficial BCV automática en tiempo real</li>
+                            <li><span class="icon check">✓</span> Impresión de tickets térmicos (58mm / 80mm)</li>
+                            <li><span class="icon check">✓</span> Apertura automática de gaveta de dinero RJ11</li>
+                            <li><span class="icon check">✓</span> Operación 100% offline sin internet continuo</li>
+                            <li><span class="icon check">✓</span> Respaldo local y sincronización con la nube</li>
+                        </ul>
+                    </div>
+
+                    <!-- PC Plan 2: Negocio Pro -->
+                    <div class="pricing-card pc-featured">
+                        <span class="badge premium-badge">⭐ MÁS POPULAR / PRO</span>
+                        <h2 class="pricing-title">Negocio Pro</h2>
+                        <p class="pricing-subtitle">Para negocios en expansión con empleados, compras y control total</p>
+                        
+                        <div class="price-container">
+                            <span class="price">$20</span>
+                            <span class="frequency">/ mes</span>
+                        </div>
+                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">(o plan anual con descuento: $17.00/mes)</p>
+
+                        <button class="btn-plan btn-premium" onclick="openModal('Plan Negocio Pro (PC)')">⚡ Activar Negocio Pro</button>
+                        <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
+                        <div class="divider"></div>
+
+                        <ul class="feature-list">
+                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Emprendedor</strong></li>
+                            <li><span class="icon check">✓</span> Catálogo ampliado de hasta 2.000 productos</li>
+                            <li><span class="icon check">✓</span> Gestión de Empleados y Cajeros con permisos estrictos</li>
+                            <li><span class="icon check">✓</span> Módulo de Compras a Proveedores y costos unitarios</li>
+                            <li><span class="icon check">✓</span> Reportes financieros y auditoría de rentabilidad neta</li>
+                            <li><span class="icon check">✓</span> Soporte para lector de código de barras físico USB</li>
+                            <li><span class="icon check">✓</span> Control y cuadre de turnos de caja chica</li>
+                            <li><span class="icon check">✓</span> Soporte técnico prioritario 24/7</li>
+                        </ul>
+                    </div>
+
+                    <!-- PC Plan 3: Supermercado / Max -->
+                    <div class="pricing-card">
+                        <span class="badge max-badge">🚀 Potencia Total</span>
+                        <h2 class="pricing-title">Supermercado / Max</h2>
+                        <p class="pricing-subtitle">Para cadenas, supermercados y comercios con servicio de delivery</p>
+                        
+                        <div class="price-container">
+                            <span class="price">$35</span>
+                            <span class="frequency">/ mes</span>
+                        </div>
+                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">(o plan anual con descuento: $30.00/mes)</p>
+
+                        <button class="btn-plan btn-basic" onclick="openModal('Plan Supermercado Max (PC)')">Adquirir Plan Max</button>
+                        <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
+                        <div class="divider"></div>
+
+                        <ul class="feature-list">
+                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Negocio Pro</strong></li>
+                            <li><span class="icon check">✓</span> Catálogo ILIMITADO de productos y categorías</li>
+                            <li><span class="icon check">✓</span> Módulo de Delivery & Envíos con Bot oficial de Telegram (@CuadraYaBot)</li>
+                            <li><span class="icon check">✓</span> Rastreo GPS satelital en vivo con OpenStreetMap</li>
+                            <li><span class="icon check">✓</span> Navegación paso a paso con Google Maps para motorizados</li>
+                            <li><span class="icon check">✓</span> Liquidación automática de pago por viaje al repartidor</li>
+                            <li><span class="icon check">✓</span> Multi-caja en red local sincronizada</li>
+                            <li><span class="icon check">✓</span> Asesoría directa y soporte VIP por WhatsApp</li>
+                        </ul>
+                    </div>
+
+                    <!-- PC Plan 4: Licencia Vitalicia -->
+                    <div class="pricing-card pc-lifetime">
+                        <span class="badge lifetime-badge">👑 PAGO ÚNICO DEFINITIVO</span>
+                        <h2 class="pricing-title">Licencia Vitalicia</h2>
+                        <p class="pricing-subtitle">Dueño perpetuo del sistema en tu negocio. Cero mensualidades de por vida.</p>
+                        
+                        <div class="price-container">
+                            <span class="price">$320</span>
+                            <span class="frequency">USD</span>
+                        </div>
+                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">Pago Único Definitivo • Sin renovaciones</p>
+
+                        <button class="btn-plan btn-lifetime" onclick="openModal('Licencia Vitalicia Definitiva (PC)')">👑 Comprar Licencia Vitalicia</button>
+                        <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
+                        <div class="divider"></div>
+
+                        <ul class="feature-list">
+                            <li><span class="icon check">✓</span> <strong>Licencia Comercial Definitiva e Intransferible</strong></li>
+                            <li><span class="icon check">✓</span> Cero mensualidades, cero renovaciones de por vida</li>
+                            <li><span class="icon check">✓</span> Todos los módulos activos (POS, Inventario, Fiados, Empleados, Compras, Deliveries con Bot de Telegram)</li>
+                            <li><span class="icon check">✓</span> Catálogo de productos y categorías 100% ilimitados</li>
+                            <li><span class="icon check">✓</span> Bot oficial de Telegram (@CuadraYaBot) para motorizados con GPS</li>
+                            <li><span class="icon check">✓</span> Tasa oficial BCV automática garantizada</li>
+                            <li><span class="icon check">✓</span> Base de datos segura local y en nube perpetua</li>
+                            <li><span class="icon check">✓</span> Garantía de continuidad operativa sin cortes de servicio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GRID 2: Mobile Version Plans -->
+                <div class="pricing-grid" id="pricing-mobile" style="display: none;">
                     <div class="pricing-card">
                         <span class="badge basic">Gratis</span>
-                        <h2 class="pricing-title">Plan Básico</h2>
-                        <p class="pricing-subtitle">Para pequeños negocios y emprendedores que inician</p>
+                        <h2 class="pricing-title">Plan Básico Móvil</h2>
+                        <p class="pricing-subtitle">Para pequeños negocios y emprendedores que inician desde el teléfono</p>
                         
                         <div class="price-container">
                             <span class="price">$0</span>
                         </div>
                         <p class="frequency" style="margin-top: -20px; margin-bottom: 30px;">Gratis para siempre (sin límite de tiempo)</p>
 
-                        <button class="btn-plan btn-basic" onclick="openModal('Plan Básico')">Comenzar Gratis</button>
+                        <button class="btn-plan btn-basic" onclick="openModal('Plan Básico Móvil')">Comenzar Gratis</button>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
@@ -380,15 +605,15 @@
                             <li><span class="icon check">✓</span> Gráfico de ventas de los últimos 7 días</li>
                             <li><span class="icon check">✓</span> Importación de Excel (hasta 100 productos)</li>
                             <li><span class="icon check">✓</span> 1 usuario administrador (Dueño)</li>
-                            <li><span class="icon check">✓</span> Acceso biométrico instantáneo con huella dactilar.</li>
-                            <li><span class="icon check">✓</span> Multidivisa Oficial: Tasa Dólar BCV y Euro BCV en tiempo real con sincronización automática en pantalla.</li>
+                            <li><span class="icon check">✓</span> Acceso biométrico instantáneo con huella dactilar</li>
+                            <li><span class="icon check">✓</span> Multidivisa Oficial: Tasa Dólar BCV y Euro BCV en tiempo real</li>
                         </ul>
                     </div>
 
                     <div class="pricing-card premium">
-                        <span class="badge premium-badge">⭐ PRO / RECOMENDADO</span>
-                        <h2 class="pricing-title">Plan Premium</h2>
-                        <p class="pricing-subtitle">Todo el control, velocidad y automatización para tu comercio</p>
+                        <span class="badge premium-badge">⭐ MÓVIL PRO / RECOMENDADO</span>
+                        <h2 class="pricing-title">Plan Móvil Pro</h2>
+                        <p class="pricing-subtitle">Todo el control, velocidad y automatización para tu smartphone</p>
                         
                         <div class="price-container">
                             <span class="price">$8.99</span>
@@ -396,23 +621,22 @@
                         </div>
                         <p class="frequency" style="margin-top: -20px; margin-bottom: 20px;">(o equivalente en Bs. a tasa oficial)</p>
 
-                        <button class="btn-plan btn-premium" onclick="openModal('Plan Premium')">⚡ Pagar y Activar Premium</button>
+                        <button class="btn-plan btn-premium" onclick="openModal('Plan Móvil Pro')">⚡ Pagar y Activar Premium Móvil</button>
                         <p class="payment-methods">Aceptamos: Pago Móvil, Binance, Transferencia BNC</p>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Básico</strong></li>
-                            <li><span class="icon check">✓</span> Escáner Inteligente con Cámara: Escaneo de códigos de barra con autocompletado de nombre, categoría y foto de producto.</li>
-                            <li><span class="icon check">✓</span> Ganancia Neta Real: Cálculo exacto de utilidades deduciendo el costo de compra de cada producto vendido.</li>
-                            <li><span class="icon check">✓</span> Gestión de Ventas Cashea: Registro de cobros en cuotas con comprobante fotográfico y cuadre en cierre de caja.</li>
-                            <li><span class="icon check">✓</span> Importación masiva desde Excel ILIMITADA (sin tope de productos).</li>
-                            <li><span class="icon check">✓</span> Alertas automáticas y personalizadas de bajo stock para reposición a tiempo.</li>
-                            <li><span class="icon check">✓</span> Gestión de múltiples empleados con roles (Cajero, Gerente, Vendedor) y permisos individuales.</li>
-                            <li><span class="icon check">✓</span> Gráficos de rendimiento y reportes financieros avanzados.</li>
-                            <li><span class="icon check">✓</span> Soporte Prioritario VIP 24/7.</li>
+                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Básico Móvil</strong></li>
+                            <li><span class="icon check">✓</span> Escáner Inteligente con Cámara: Escaneo de códigos de barra con autocompletado</li>
+                            <li><span class="icon check">✓</span> Ganancia Neta Real: Cálculo exacto de utilidades deduciendo costos</li>
+                            <li><span class="icon check">✓</span> Gestión de Ventas Cashea: Registro de cobros en cuotas</li>
+                            <li><span class="icon check">✓</span> Importación masiva desde Excel ILIMITADA</li>
+                            <li><span class="icon check">✓</span> Alertas automáticas de bajo stock</li>
+                            <li><span class="icon check">✓</span> Gestión de múltiples empleados con roles y permisos</li>
+                            <li><span class="icon check">✓</span> Gráficos de rendimiento y reportes avanzados</li>
+                            <li><span class="icon check">✓</span> Soporte Prioritario VIP 24/7</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </main>
@@ -458,6 +682,25 @@
 
         const modal = document.getElementById('contactModal');
         const selectedPlanInput = document.getElementById('selectedPlan');
+
+        function switchPricingPlatform(platform) {
+            const pcGrid = document.getElementById('pricing-pc');
+            const mobileGrid = document.getElementById('pricing-mobile');
+            const btnPc = document.getElementById('btn-toggle-pc');
+            const btnMobile = document.getElementById('btn-toggle-mobile');
+
+            if (platform === 'pc') {
+                if (pcGrid) pcGrid.style.display = 'grid';
+                if (mobileGrid) mobileGrid.style.display = 'none';
+                if (btnPc) btnPc.classList.add('active');
+                if (btnMobile) btnMobile.classList.remove('active');
+            } else {
+                if (pcGrid) pcGrid.style.display = 'none';
+                if (mobileGrid) mobileGrid.style.display = 'grid';
+                if (btnMobile) btnMobile.classList.add('active');
+                if (btnPc) btnPc.classList.remove('active');
+            }
+        }
 
         function openModal(planName) {
             selectedPlanInput.value = planName;

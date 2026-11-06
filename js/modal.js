@@ -5,17 +5,17 @@
  */
 
 (function () {
-    // Enlaces de descarga predeterminados (Fallback inmediato)
-    const REPO_DESKTOP = 'mtovardev/CuadraYa-SGI';
+    // Enlaces de descarga predeterminados (Fallback inmediato sincronizado con CuadraYa-Update)
+    const REPO_UPDATE = 'mtovardev/CuadraYa-Update';
     const REPO_ANDROID = 'mtovardev/CuadraYa-App';
 
     let downloadUrls = {
-        windows: `https://github.com/${REPO_DESKTOP}/releases/latest/download/CuadraYa_0.1.0_x64-setup.exe`,
-        linux: `https://github.com/${REPO_DESKTOP}/releases/latest/download/CuadraYa_0.1.0_amd64.deb`,
+        windows: `https://github.com/${REPO_UPDATE}/releases/download/v0.2.2/CuadraYa_0.2.2_x64-setup.exe`,
+        linux: `https://github.com/${REPO_UPDATE}/releases/download/v0.2.2/CuadraYa_0.2.2_amd64.deb`,
         android: `https://github.com/${REPO_ANDROID}/releases/latest/download/app-release.apk`
     };
 
-    let latestDesktopVersion = 'v0.1.0';
+    let latestDesktopVersion = 'v0.2.2';
 
     // HTML del Modal
     const modalHTML = `
@@ -124,17 +124,44 @@
         }
     }
 
-    // Consulta dinámica a GitHub Releases API para siempre obtener las últimas versiones
+    // Consulta dinámica continua a version.json y GitHub Releases API para siempre obtener las últimas versiones
     async function fetchLatestReleases() {
         try {
-            // Consulta para versión Desktop (Windows y Linux)
-            const desktopRes = await fetch(`https://api.github.com/repos/${REPO_DESKTOP}/releases/latest`);
+            // 1. Consulta directa al version.json público de CuadraYa-Update
+            const vRes = await fetch(`https://raw.githubusercontent.com/${REPO_UPDATE}/main/version.json?t=${Date.now()}`);
+            if (vRes.ok) {
+                const vData = await vRes.json();
+                if (vData.version) {
+                    latestDesktopVersion = vData.version;
+                }
+                if (vData.platforms && vData.platforms['windows-x86_64'] && vData.platforms['windows-x86_64'].url) {
+                    downloadUrls.windows = vData.platforms['windows-x86_64'].url;
+                    const btnWin = document.getElementById('btn-dl-windows');
+                    if (btnWin) btnWin.href = downloadUrls.windows;
+                }
+                if (vData.platforms && vData.platforms['linux-x86_64'] && vData.platforms['linux-x86_64'].url) {
+                    downloadUrls.linux = vData.platforms['linux-x86_64'].url;
+                    const btnLin = document.getElementById('btn-dl-linux');
+                    if (btnLin) btnLin.href = downloadUrls.linux;
+                }
+                const versionLabel = document.getElementById('version-label');
+                if (versionLabel) {
+                    versionLabel.textContent = `Versión actual: ${latestDesktopVersion} • Actualizaciones silenciosas automáticas incluidas`;
+                }
+            }
+        } catch (e) {
+            console.warn('Leyendo respaldo de releases:', e);
+        }
+
+        try {
+            // 2. Consulta adicional a Releases API
+            const desktopRes = await fetch(`https://api.github.com/repos/${REPO_UPDATE}/releases/latest`);
             if (desktopRes.ok) {
                 const data = await desktopRes.json();
                 latestDesktopVersion = data.tag_name || latestDesktopVersion;
 
-                const exeAsset = data.assets.find(a => a.name.toLowerCase().endsWith('.exe'));
-                const debAsset = data.assets.find(a => a.name.toLowerCase().endsWith('.deb'));
+                const exeAsset = data.assets && data.assets.find(a => a.name.toLowerCase().endsWith('.exe'));
+                const debAsset = data.assets && data.assets.find(a => a.name.toLowerCase().endsWith('.deb'));
 
                 if (exeAsset) {
                     downloadUrls.windows = exeAsset.browser_download_url;
@@ -154,7 +181,7 @@
                 }
             }
         } catch (e) {
-            console.log('Usando URLs directas de última versión para descargas.');
+            // Mantener fallback
         }
 
         try {
