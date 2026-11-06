@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/characteristics.css">
     <link rel="stylesheet" href="css/modal.css">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CuadraYa - Gestiona tu comercio desde el celular">
-    <meta property="og:description" content="La forma más sencilla de gestionar tu inventario y ventas en tiempo real. ¡Totalmente gratis!">
-    <meta property="og:url" content="https://mtovardev.github.io/CuadraYaWeb/">
+    <meta property="og:title" content="CuadraYa - Características del Sistema POS y Móvil">
+    <meta property="og:description" content="Descubre todas las funcionalidades de CuadraYa para PC y Android: Punto de Venta, inventarios, deliveries y control financiero.">
+    <meta property="og:url" content="https://mtovardev.github.io/CuadraYaWeb/characteristics.html">
     <meta property="og:image" content="https://mtovardev.github.io/CuadraYaWeb/assets/bannerdefault.png">
     <meta property="og:site_name" content="CuadraYa">
     <meta name="theme-color" content="#0f172a">
@@ -32,40 +33,155 @@
 
         <main class="content-wrapper">
             <div class="section-header">
-                <h1>Potencia tu negocio</h1>
-                <p>Descubre todas las herramientas que CuadraYa tiene para ofrecerte.</p>
+                <h1>Potencia cada área de tu comercio</h1>
+                <p>Diseñado para maximizar la velocidad en caja, blindar tus finanzas y automatizar tus despachos.</p>
             </div>
 
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">📦</div>
-                    <h3>Inventario en Tiempo Real</h3>
-                    <p>Controla tus existencias al instante. Evita pérdidas y asegura que nunca te quedes sin tus productos más vendidos.</p>
+            <div class="platform-nav-container">
+                <button class="platform-nav-btn active" id="btn-char-pc" onclick="switchCharPlatform('pc')">
+                    Sistema para PC (Windows y Linux)
+                </button>
+                <button class="platform-nav-btn" id="btn-char-mobile" onclick="switchCharPlatform('mobile')">
+                    Aplicación Móvil (Android)
+                </button>
+            </div>
+
+            <div class="features-grid-custom" id="char-pc">
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Punto de Venta POS</span>
+                    <h3>Facturación Ultra-Rápida</h3>
+                    <p>Cobro ágil con lector de código de barras USB y búsqueda instantánea. Optimizado para alto flujo de clientes en mostrador.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">📊</div>
-                    <h3>Reportes Inteligentes</h3>
-                    <p>Obtén informes claros de ventas y ganancias. Toma decisiones basadas en datos y no en suposiciones.</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Multimoneda Oficial</span>
+                    <h3>Vuelto Multimoneda Exacto</h3>
+                    <p>Calcula y desglosa el cambio en divisas o bolívares a la tasa oficial BCV actualizada en tiempo real sin descuadres.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">📱</div>
-                    <h3>Gestión desde el Móvil</h3>
-                    <p>Lleva tu negocio en el bolsillo. Administra todo desde tu smartphone estés donde estés, sin necesidad de una PC.</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Hardware Fiscal y Térmico</span>
+                    <h3>Tickets y Gaveta RJ11</h3>
+                    <p>Compatibilidad nativa con impresoras térmicas ESC/POS de 58mm y 80mm. Apertura automática de gaveta portamonedas.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🔒</div>
-                    <h3>Seguridad Total</h3>
-                    <p>Tus datos y los de tus clientes están protegidos con los más altos estándares de encriptación.</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Auditoría y Arqueo</span>
+                    <h3>Cierre Z y Arqueo Ciego</h3>
+                    <p>Cierre de turno exhaustivo. El cajero declara el efectivo real en caja sin ver el total del sistema para evitar faltantes.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Rapidez y Eficiencia</h3>
-                    <p>Optimiza tus procesos de venta y cierre de caja en segundos, sin complicaciones técnicas.</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Módulo Delivery</span>
+                    <h3>Bot Interactivo de Telegram</h3>
+                    <p>Notificación instantánea a los motorizados mediante bot con dirección, productos, monto del pedido y pago por despacho.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">☁️</div>
-                    <h3>Sincronización en la Nube</h3>
-                    <p>Accede a tu información desde cualquier dispositivo. Todo se guarda automáticamente en la nube.</p>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Geolocalización</span>
+                    <h3>Rastreo GPS en Tiempo Real</h3>
+                    <p>Panel satelital con OpenStreetMap que muestra la ubicación fija del local comercial y las motos en ruta de entrega activa.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Cuentas por Cobrar</span>
+                    <h3>Control Estricto de Fiados</h3>
+                    <p>Gestión de clientes de confianza, asignación de límites de crédito, registro de abonos parciales e historial de pagos.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Seguridad y Roles</span>
+                    <h3>Permisos y Control de Cajeros</h3>
+                    <p>Bloquea modificaciones de precios, anulación de tickets o visualización de costos únicamente para usuarios administradores.</p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </div>
+                    <span class="feature-badge-sub pc">Arquitectura Robusta</span>
+                    <h3>100% Offline-First</h3>
+                    <p>Opera con total normalidad incluso ante caídas de internet. Las transacciones se guardan localmente y se respaldan automáticamente.</p>
+                </div>
+            </div>
+
+            <div class="features-grid-custom" id="char-mobile" style="display: none;">
+                <div class="feature-box mobile-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <span class="feature-badge-sub mobile">Movilidad Total</span>
+                    <h3>Punto de Venta en la Mano</h3>
+                    <p>Realiza ventas de mostrador, pedidos en mesa o cobros a domicilio directamente desde tu smartphone Android sin cables.</p>
+                </div>
+
+                <div class="feature-box mobile-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="7" y="7" width="10" height="10"/></svg>
+                    </div>
+                    <span class="feature-badge-sub mobile">Escaneo de Códigos</span>
+                    <h3>Escáner con Cámara</h3>
+                    <p>Lectura inmediata de códigos de barra estándar y códigos QR usando el lente de tu teléfono con detección automática de productos.</p>
+                </div>
+
+                <div class="feature-box mobile-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    </div>
+                    <span class="feature-badge-sub mobile">Navegación GPS</span>
+                    <h3>Ruta Directa en Google Maps</h3>
+                    <p>Los repartidores abren la ubicación del cliente directamente en Google Maps con un toque desde su teléfono, sin tipear direcciones.</p>
+                </div>
+
+                <div class="feature-box mobile-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                    </div>
+                    <span class="feature-badge-sub mobile">Seguridad Biométrica</span>
+                    <h3>Acceso con Huella Dactilar</h3>
+                    <p>Protege la información financiera y los cierres de caja de tu negocio mediante desbloqueo biométrico nativo de tu teléfono.</p>
+                </div>
+
+                <div class="feature-box mobile-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <span class="feature-badge-sub mobile">Control de Inventario</span>
+                    <h3>Importación desde Excel</h3>
+                    <p>Carga masivamente tu lista de productos con precios y códigos en segundos mediante plantillas Excel compatibles.</p>
+                </div>
+
+                <div class="feature-box mobile-box">
+                    <div class="feature-icon-box">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
+                    <span class="feature-badge-sub mobile">Notificaciones</span>
+                    <h3>Alertas de Stock Bajo</h3>
+                    <p>Avisos visuales cuando los artículos alcanzan su punto de reorden para evitar quedarte sin tus productos más demandados.</p>
                 </div>
             </div>
         </main>
@@ -77,13 +193,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
-    <script>
-        VANTA.NET({
-            el: "#vanta-bg", mouseControls: true, touchControls: true, gyroControls: false,
-            minHeight: 200.00, minWidth: 200.00, scale: 1.00, scaleMobile: 1.00,
-            color: 0x3b82f6, backgroundColor: 0x0f172a, points: 10.00, maxDistance: 25.00, spacing: 20.00
-        });
-    </script>
+    <script src="js/vanta-init.js"></script>
+    <script src="js/characteristics.js"></script>
     <script src="js/modal.js?v=0.2.3"></script>
 </body>
 </html>

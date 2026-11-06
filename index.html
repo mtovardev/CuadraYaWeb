@@ -35,11 +35,11 @@
             <section class="hero">
                 <div class="title">
                     <h1>Gestiona tu comercio en Android, Windows y Linux</h1>
-                    <span>La solución definitiva de punto de venta (POS) y control de inventario. Vende desde tu móvil Android o agiliza el mostrador en tu computadora con Windows y Linux con soporte para tickets fiscales, gaveta de dinero y modo offline.</span>
+                    <span>La solución definitiva de punto de venta POS y control de inventario. Vende desde tu móvil Android o agiliza el mostrador en tu computadora con Windows y Linux con soporte para tickets térmicos, gaveta de dinero y modo offline.</span>
                     <div class="badges">
-                        <p class="badge">✨ Totalmente gratis con planes personalizados.</p>
-                        <p class="badge">💻 PC: Windows y Linux (Offline-First).</p>
-                        <p class="badge">📱 Móvil: Android (Smartphones & Tablets).</p>
+                        <p class="badge">Comienza gratis con planes a tu medida</p>
+                        <p class="badge">PC: Windows y Linux (Offline-First)</p>
+                        <p class="badge">Móvil: Android (Teléfonos y Tablets)</p>
                     </div>
                 </div>
 
@@ -59,17 +59,23 @@
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">📦</div>
+                    <div class="feature-icon-wrapper">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
                     <h3>Inventario en Tiempo Real</h3>
                     <p>Controla tus existencias al instante. Evita pérdidas y asegura que nunca te quedes sin tus productos más vendidos.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon-wrapper">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
                     <h3>Reportes Financieros y Cierre Z</h3>
-                    <p>Obtén arqueo a ciegas, cortes parciales (X), cierres definitivos (Z) y exportación de métricas directas a Excel.</p>
+                    <p>Obtén arqueo ciego, cortes de caja parciales y definitivos con exportación de métricas directas a Excel.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">💻📱</div>
+                    <div class="feature-icon-wrapper">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
                     <h3>Multiplataforma y Offline</h3>
                     <p>Opera desde Android en la calle o desde tu PC (Windows y Linux) con apertura de gaveta de dinero y tickets térmicos.</p>
                 </div>
@@ -83,24 +89,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
-    
-    <script>
-        VANTA.NET({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x3b82f6,
-            backgroundColor: 0x0f172a,
-            points: 10.00,
-            maxDistance: 25.00,
-            spacing: 20.00
-        });
-    </script>
+    <script src="js/vanta-init.js"></script>
     <script src="js/modal.js?v=0.2.3"></script>
 </body>
 </html>

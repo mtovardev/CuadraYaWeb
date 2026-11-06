@@ -9,435 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/price.css">
     <link rel="stylesheet" href="css/modal.css">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CuadraYa - Gestiona tu comercio desde el celular">
-    <meta property="og:description" content="La forma más sencilla de gestionar tu inventario y ventas en tiempo real. ¡Totalmente gratis!">
-    <meta property="og:url" content="https://mtovardev.github.io/CuadraYaWeb/">
+    <meta property="og:title" content="CuadraYa - Precios y Planes de Licenciamiento">
+    <meta property="og:description" content="Planes para Punto de Venta PC y Móvil adaptados al comercio en Venezuela.">
+    <meta property="og:url" content="https://mtovardev.github.io/CuadraYaWeb/price.html">
     <meta property="og:image" content="https://mtovardev.github.io/CuadraYaWeb/assets/bannerdefault.png">
     <meta property="og:site_name" content="CuadraYa">
     <meta name="theme-color" content="#0f172a">
-    
-    <style>
-        .pricing-section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px 0 80px;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (min-width: 900px) {
-            .pricing-grid {
-                grid-template-columns: 1fr 1.1fr; 
-                gap: 30px;
-            }
-        }
-
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .pricing-card.premium {
-            background: linear-gradient(145deg, rgba(30, 58, 138, 0.4) 0%, rgba(37, 99, 235, 0.15) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.5);
-            box-shadow: 0 0 40px rgba(37, 99, 235, 0.2), inset 0 0 20px rgba(59, 130, 246, 0.1);
-            z-index: 2;
-        }
-
-        @media (min-width: 900px) {
-            .pricing-card.premium {
-                transform: scale(1.05);
-            }
-            .pricing-card.premium:hover {
-                transform: scale(1.05) translateY(-5px);
-            }
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            align-self: flex-start;
-        }
-
-        .badge.basic {
-            background: rgba(255, 255, 255, 0.1);
-            color: #cbd5e1;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .badge.premium-badge {
-            background: linear-gradient(90deg, #fbbf24, #f59e0b); 
-            color: #0f172a; 
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-        }
-
-        .platform-toggle-container {
-            display: flex;
-            justify-content: center;
-            margin: 0 auto 40px;
-            max-width: 520px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 6px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-        }
-
-        .platform-toggle-btn {
-            flex: 1;
-            padding: 12px 18px;
-            border: none;
-            background: transparent;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .platform-toggle-btn.active {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-        }
-
-        .pricing-grid-pc {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            align-items: stretch;
-        }
-
-        @media (min-width: 680px) {
-            .pricing-grid-pc {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1100px) {
-            .pricing-grid-pc {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-            }
-        }
-
-        .pricing-card.pc-featured {
-            background: linear-gradient(145deg, rgba(30, 58, 138, 0.45) 0%, rgba(37, 99, 235, 0.18) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.55);
-            box-shadow: 0 0 35px rgba(37, 99, 235, 0.25);
-        }
-
-        .pricing-card.pc-lifetime {
-            background: linear-gradient(145deg, rgba(88, 28, 135, 0.45) 0%, rgba(147, 51, 234, 0.18) 100%);
-            border: 1px solid rgba(168, 85, 247, 0.55);
-            box-shadow: 0 0 35px rgba(168, 85, 247, 0.25);
-        }
-
-        .pricing-card.pc-lifetime .price {
-            color: #d8b4fe;
-        }
-
-        .badge.lifetime-badge {
-            background: linear-gradient(90deg, #c084fc, #9333ea);
-            color: white;
-            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
-        }
-
-        .badge.pc-badge {
-            background: rgba(37, 99, 235, 0.2);
-            color: #93c5fd;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .badge.max-badge {
-            background: linear-gradient(90deg, #06b6d4, #0284c7);
-            color: white;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
-        }
-
-        .btn-lifetime {
-            background: linear-gradient(90deg, #c084fc, #9333ea);
-            color: white;
-            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.35);
-        }
-
-        .btn-lifetime:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(147, 51, 234, 0.5);
-        }
-
-        .pricing-title {
-            font-size: 1.8rem;
-            color: white;
-            margin-bottom: 8px;
-            font-weight: 800;
-        }
-
-        .pricing-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            min-height: 45px; 
-        }
-
-        .price-container {
-            margin-bottom: 30px;
-            display: flex;
-            align-items: baseline;
-            gap: 5px;
-        }
-
-        .price {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
-            line-height: 1;
-        }
-
-        .frequency {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1rem;
-        }
-
-        .premium .price {
-            color: #fbbf24;
-        }
-
-        .btn-plan {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-basic {
-            background: transparent;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-basic:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .btn-premium {
-            background: linear-gradient(90deg, #fbbf24, #f59e0b);
-            color: #0f172a;
-            border: none;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-        }
-
-        .btn-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-        }
-
-        .payment-methods {
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 30px;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        .feature-list li .icon {
-            flex-shrink: 0;
-            font-weight: 800;
-        }
-
-        .feature-list li .icon.check {
-            color: #10b981;
-        }
-
-        .premium .feature-list li .icon.check {
-            color: #fbbf24; 
-        }
-
-        .divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: #1e293b;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            width: 90%;
-            max-width: 450px;
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-modal:hover {
-            color: white;
-        }
-
-        .modal-content h3 {
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .modal-content p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .modal-group {
-            margin-bottom: 15px;
-        }
-
-        .modal-group label {
-            display: block;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .modal-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .modal-group input:focus {
-            border-color: #3b82f6;
-        }
-
-        .modal-submit {
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            border: none;
-            background: #25d366; 
-            color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .modal-submit:hover {
-            background: #128c7e;
-        }
-    </style>
 </head>
 <body>
     <div class="page-bg" id="vanta-bg">
@@ -447,116 +27,182 @@
                 <a href="characteristics.html">Características</a>
                 <a href="price.html" class="active">Precios</a>
                 <a href="support.html">Soporte</a>
-                <a href="#descargar" class="download-btn">Descargar</a>     
+                <a href="#descargar" class="download-btn">Descargar</a>
             </nav>
         </header>
 
         <main class="content-wrapper">
             <div class="section-header">
                 <h1>Planes a tu medida</h1>
-                <p>Elige la plataforma que mejor se adapte a tu negocio: Punto de Venta para PC o aplicación Móvil.</p>
+                <p>Elige la plataforma que mejor se adapte a tu comercio: Punto de Venta para PC o aplicación Móvil.</p>
             </div>
 
-            <!-- Platform Selector Toggle -->
             <div class="platform-toggle-container">
                 <button class="platform-toggle-btn active" id="btn-toggle-pc" onclick="switchPricingPlatform('pc')">
-                    💻 Versión para PC (Windows / Linux)
+                    Versión para PC (Windows y Linux)
                 </button>
                 <button class="platform-toggle-btn" id="btn-toggle-mobile" onclick="switchPricingPlatform('mobile')">
-                    📱 Versión Móvil (Android)
+                    Versión Móvil (Android)
                 </button>
             </div>
 
             <div class="pricing-section">
-                <!-- GRID 1: PC Version Plans -->
                 <div class="pricing-grid-pc" id="pricing-pc">
-                    <!-- PC Plan 1: Comercio Estándar -->
                     <div class="pricing-card">
-                        <span class="badge pc-badge">Inicio Comercial Sólido</span>
+                        <span class="badge-tag standard">Inicio Comercial Sólido</span>
                         <h2 class="pricing-title">Comercio Estándar</h2>
-                        <p class="pricing-subtitle">Para bodegones, panaderías, tiendas y minimarkets que buscan vender rápido, cobrar en $ y Bs a tasa BCV y cuadrar caja al centavo.</p>
+                        <p class="pricing-subtitle">Para bodegones, panaderías, tiendas y minimarkets que buscan vender rápido, cobrar en divisas y bolívares a tasa oficial BCV y cuadrar caja al centavo.</p>
                         
                         <div class="price-container">
                             <span class="price">$15</span>
                             <span class="frequency">/ mes</span>
                         </div>
-                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">(o plan anual con descuento: $12.00/mes)</p>
+                        <p class="price-discount-note">(o plan anual con descuento: $12.00/mes)</p>
 
-                        <button class="btn-plan btn-basic" onclick="openModal('Plan Comercio Estándar (PC)')">Adquirir Plan</button>
+                        <button class="btn-plan btn-standard" onclick="openContactModal('Plan Comercio Estándar (PC)')">Adquirir Plan</button>
                         <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> Punto de Venta POS ultra-rápido en Bs y USD</li>
-                            <li><span class="icon check">✓</span> Cálculo de vuelto multimoneda automático ($ y Bs)</li>
-                            <li><span class="icon check">✓</span> Tasa oficial BCV automática en tiempo real</li>
-                            <li><span class="icon check">✓</span> Catálogo de hasta 400 productos con control de stock</li>
-                            <li><span class="icon check">✓</span> Impresión de tickets térmicos (58mm / 80mm)</li>
-                            <li><span class="icon check">✓</span> Apertura automática de gaveta de dinero RJ11</li>
-                            <li><span class="icon check">✓</span> 100% Offline-first (vende sin parar aunque no haya internet)</li>
-                            <li><span class="icon check">✓</span> Respaldo local y sincronización con la nube</li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Punto de Venta POS ultra-rápido en Bs y USD</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Cálculo de vuelto multimoneda automático ($ y Bs)</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Tasa oficial BCV automática en tiempo real</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Catálogo de hasta 400 productos con control de stock</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Impresión de tickets térmicos (58mm / 80mm)</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Apertura automática de gaveta de dinero RJ11</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>100% Offline-First para vender sin interrupciones</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Respaldo local y sincronización en la nube</span>
+                            </li>
                         </ul>
                     </div>
 
-                    <!-- PC Plan 2: Negocio Pro -->
                     <div class="pricing-card pc-featured">
-                        <span class="badge premium-badge">⭐ El Más Elegido por Comerciantes</span>
+                        <span class="badge-tag pro">El Más Elegido por Comerciantes</span>
                         <h2 class="pricing-title">Negocio Pro</h2>
-                        <p class="pricing-subtitle">Para comercios con empleados: audita cada centavo con roles para cajeros, controla tus fiados y audita ganancias reales sin fugas.</p>
+                        <p class="pricing-subtitle">Para comercios con personal de caja: audita cada centavo con roles para cajeros, gestiona cuentas fiadas y monitorea márgenes netos reales.</p>
                         
                         <div class="price-container">
                             <span class="price">$25</span>
                             <span class="frequency">/ mes</span>
                         </div>
-                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">(o plan anual con descuento: $20.00/mes)</p>
+                        <p class="price-discount-note">(o plan anual con descuento: $20.00/mes)</p>
 
-                        <button class="btn-plan btn-premium" onclick="openModal('Plan Negocio Pro (PC)')">⚡ Activar Negocio Pro</button>
+                        <button class="btn-plan btn-pro" onclick="openContactModal('Plan Negocio Pro (PC)')">Activar Negocio Pro</button>
                         <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Comercio Estándar</strong></li>
-                            <li><span class="icon check">✓</span> Catálogo ILIMITADO de productos y categorías</li>
-                            <li><span class="icon check">✓</span> Gestión de Empleados y Cajeros con permisos estrictos</li>
-                            <li><span class="icon check">✓</span> Control de Fiados y Cuentas por Cobrar con límite de crédito</li>
-                            <li><span class="icon check">✓</span> Módulo de Compras a Proveedores y costos de reposición</li>
-                            <li><span class="icon check">✓</span> Control de mermas, pérdidas y ajustes de stock</li>
-                            <li><span class="icon check">✓</span> Escáner móvil inalámbrico y lector de código de barras USB</li>
-                            <li><span class="icon check">✓</span> Reportes financieros y balance de rentabilidad neta real</li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span><strong>Todo lo incluido en el Plan Comercio Estándar</strong></span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Catálogo ilimitado de productos y departamentos</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Gestión de cajeros y roles con permisos estrictos</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Control de fiados y cuentas por cobrar con límite</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Módulo de compras a proveedores y reposición</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Control de mermas, pérdidas y ajustes de inventario</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Escáner inalámbrico y lector de código USB</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Balance de rentabilidad neta real por producto</span>
+                            </li>
                         </ul>
                     </div>
 
-                    <!-- PC Plan 3: Corporativo & Delivery -->
                     <div class="pricing-card">
-                        <span class="badge max-badge">🚀 Máxima Potencia y Despacho</span>
+                        <span class="badge-tag corp">Máxima Potencia y Despacho</span>
                         <h2 class="pricing-title">Corporativo & Delivery</h2>
-                        <p class="pricing-subtitle">Para supermercados, cadenas y negocios con delivery: Bot de Telegram oficial, rastreo GPS satelital en vivo y soporte VIP.</p>
+                        <p class="pricing-subtitle">Para cadenas, minimarkets y negocios con flota de despacho: Bot interactivo de Telegram, rastreo satelital GPS en tiempo real y soporte directo.</p>
                         
                         <div class="price-container">
                             <span class="price">$40</span>
                             <span class="frequency">/ mes</span>
                         </div>
-                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">(o plan anual con descuento: $34.00/mes)</p>
+                        <p class="price-discount-note">(o plan anual con descuento: $34.00/mes)</p>
 
-                        <button class="btn-plan btn-basic" onclick="openModal('Plan Corporativo & Delivery (PC)')">Adquirir Plan Corporativo</button>
+                        <button class="btn-plan btn-corp" onclick="openContactModal('Plan Corporativo & Delivery (PC)')">Adquirir Plan Corporativo</button>
                         <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Negocio Pro</strong></li>
-                            <li><span class="icon check">✓</span> Módulo de Delivery & Envíos con Bot interactivo de Telegram (@CuadraYaBot)</li>
-                            <li><span class="icon check">✓</span> Rastreo GPS satelital en tiempo real con OpenStreetMap</li>
-                            <li><span class="icon check">✓</span> Navegación paso a paso en Google Maps para repartidores</li>
-                            <li><span class="icon check">✓</span> Liquidación y control automático de pago por viaje al rider</li>
-                            <li><span class="icon check">✓</span> Multi-caja en red local sincronizada al instante</li>
-                            <li><span class="icon check">✓</span> Respaldo prioritario de datos continuo en la nube</li>
-                            <li><span class="icon check">✓</span> Asesoría personalizada y soporte técnico VIP directo por WhatsApp</li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span><strong>Todo lo incluido en el Plan Negocio Pro</strong></span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Módulo de Delivery con Bot interactivo de Telegram</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Rastreo GPS satelital en vivo con OpenStreetMap</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Navegación paso a paso en Google Maps para repartidores</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Liquidación y control automático de pago por envío</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Multi-caja en red local sincronizada al instante</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Respaldo prioritario de datos continuo en la nube</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Asesoría personalizada y soporte técnico VIP</span>
+                            </li>
                         </ul>
                     </div>
 
-                    <!-- PC Plan 4: Licencia Vitalicia Definitiva -->
                     <div class="pricing-card pc-lifetime">
-                        <span class="badge lifetime-badge">👑 INVERSIÓN ÚNICA • SÉ DUEÑO TOTAL</span>
+                        <span class="badge-tag lifetime">Inversión Única • Sé Dueño Total</span>
                         <h2 class="pricing-title">Licencia Vitalicia</h2>
                         <p class="pricing-subtitle">Adquiere el sistema completo para siempre en un único pago. Sin mensualidades, sin renovaciones y con respaldo de por vida.</p>
                         
@@ -564,77 +210,147 @@
                             <span class="price">$350</span>
                             <span class="frequency">USD</span>
                         </div>
-                        <p class="frequency" style="margin-top: -20px; margin-bottom: 25px;">Pago Único Definitivo • Cero mensualidades de por vida</p>
+                        <p class="price-discount-note">Pago Único Definitivo • Cero mensualidades de por vida</p>
 
-                        <button class="btn-plan btn-lifetime" onclick="openModal('Licencia Vitalicia Definitiva (PC)')">👑 Comprar Licencia Vitalicia</button>
+                        <button class="btn-plan btn-lifetime" onclick="openContactModal('Licencia Vitalicia Definitiva (PC)')">Comprar Licencia Vitalicia</button>
                         <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> <strong>Licencia Comercial Definitiva e Intransferible ($350 USD)</strong></li>
-                            <li><span class="icon check">✓</span> Cero mensualidades, cero renovaciones de por vida</li>
-                            <li><span class="icon check">✓</span> Todos los módulos activos (POS, Inventario, Fiados, Empleados, Compras, Deliveries con Bot de Telegram)</li>
-                            <li><span class="icon check">✓</span> Catálogo de productos y categorías 100% ilimitados</li>
-                            <li><span class="icon check">✓</span> Bot oficial de Telegram (@CuadraYaBot) para motorizados con GPS</li>
-                            <li><span class="icon check">✓</span> Tasa oficial BCV automática garantizada</li>
-                            <li><span class="icon check">✓</span> Base de datos segura local y en nube perpetua</li>
-                            <li><span class="icon check">✓</span> Garantía de continuidad operativa sin cortes de servicio</li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span><strong>Licencia Comercial Definitiva e Intransferible</strong></span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Cero mensualidades y cero pagos recurrentes</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Todos los módulos activos (POS, Inventario, Fiados, Compras, Delivery)</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Catálogo de productos y categorías 100% ilimitados</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Bot interactivo de Telegram con geolocalización</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Sincronización oficial de tasa BCV en tiempo real</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Base de datos segura local y en nube perpetua</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Garantía de continuidad operativa sin cortes de servicio</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- GRID 2: Mobile Version Plans -->
-                <div class="pricing-grid" id="pricing-mobile" style="display: none;">
+                <div class="pricing-grid-mobile" id="pricing-mobile" style="display: none;">
                     <div class="pricing-card">
-                        <span class="badge basic">Gratis</span>
+                        <span class="badge-tag standard">Gratis</span>
                         <h2 class="pricing-title">Plan Básico Móvil</h2>
-                        <p class="pricing-subtitle">Para pequeños negocios y emprendedores que inician desde el teléfono</p>
+                        <p class="pricing-subtitle">Para pequeños negocios y emprendedores que inician su administración desde el teléfono móvil.</p>
                         
                         <div class="price-container">
                             <span class="price">$0</span>
                         </div>
-                        <p class="frequency" style="margin-top: -20px; margin-bottom: 30px;">Gratis para siempre (sin límite de tiempo)</p>
+                        <p class="price-discount-note">Gratis para siempre (sin límite de tiempo)</p>
 
-                        <button class="btn-plan btn-basic" onclick="openModal('Plan Básico Móvil')">Comenzar Gratis</button>
+                        <button class="btn-plan btn-standard" onclick="openContactModal('Plan Básico Móvil')">Comenzar Gratis</button>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> Gestión de inventario manual</li>
-                            <li><span class="icon check">✓</span> Registro de ventas y cobranza diaria</li>
-                            <li><span class="icon check">✓</span> Modo Offline 100% autónomo (sin internet)</li>
-                            <li><span class="icon check">✓</span> Gráfico de ventas de los últimos 7 días</li>
-                            <li><span class="icon check">✓</span> Importación de Excel (hasta 100 productos)</li>
-                            <li><span class="icon check">✓</span> 1 usuario administrador (Dueño)</li>
-                            <li><span class="icon check">✓</span> Acceso biométrico instantáneo con huella dactilar</li>
-                            <li><span class="icon check">✓</span> Multidivisa Oficial: Tasa Dólar BCV y Euro BCV en tiempo real</li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Gestión de inventario manual</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Registro de ventas y cobranza diaria</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Modo 100% autónomo (sin internet)</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Gráfico de ventas de los últimos 7 días</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Importación de Excel (hasta 100 productos)</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>1 usuario administrador (Dueño)</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Acceso biométrico instantáneo con huella dactilar</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Multidivisa Oficial: Tasa Dólar BCV y Euro BCV en tiempo real</span>
+                            </li>
                         </ul>
                     </div>
 
-                    <div class="pricing-card premium">
-                        <span class="badge premium-badge">⭐ MÓVIL PRO / RECOMENDADO</span>
+                    <div class="pricing-card mobile-featured">
+                        <span class="badge-tag pro">Recomendado Móvil</span>
                         <h2 class="pricing-title">Plan Móvil Pro</h2>
-                        <p class="pricing-subtitle">Todo el control, velocidad y automatización para tu smartphone</p>
+                        <p class="pricing-subtitle">Todo el control, velocidad y automatización para tu teléfono inteligente.</p>
                         
                         <div class="price-container">
                             <span class="price">$8.99</span>
                             <span class="frequency">/ mes</span>
                         </div>
-                        <p class="frequency" style="margin-top: -20px; margin-bottom: 20px;">(o equivalente en Bs. a tasa oficial)</p>
+                        <p class="price-discount-note">(o equivalente en Bs a tasa oficial)</p>
 
-                        <button class="btn-plan btn-premium" onclick="openModal('Plan Móvil Pro')">⚡ Pagar y Activar Premium Móvil</button>
-                        <p class="payment-methods">Aceptamos: Pago Móvil, Binance, Transferencia BNC</p>
+                        <button class="btn-plan btn-pro" onclick="openContactModal('Plan Móvil Pro')">Activar Premium Móvil</button>
+                        <p class="payment-methods">Pago Móvil, Binance, Transferencia BNC</p>
                         <div class="divider"></div>
 
                         <ul class="feature-list">
-                            <li><span class="icon check">✓</span> <strong>Todo lo incluido en el Plan Básico Móvil</strong></li>
-                            <li><span class="icon check">✓</span> Escáner Inteligente con Cámara: Escaneo de códigos de barra con autocompletado</li>
-                            <li><span class="icon check">✓</span> Ganancia Neta Real: Cálculo exacto de utilidades deduciendo costos</li>
-                            <li><span class="icon check">✓</span> Gestión de Ventas Cashea: Registro de cobros en cuotas</li>
-                            <li><span class="icon check">✓</span> Importación masiva desde Excel ILIMITADA</li>
-                            <li><span class="icon check">✓</span> Alertas automáticas de bajo stock</li>
-                            <li><span class="icon check">✓</span> Gestión de múltiples empleados con roles y permisos</li>
-                            <li><span class="icon check">✓</span> Gráficos de rendimiento y reportes avanzados</li>
-                            <li><span class="icon check">✓</span> Soporte Prioritario VIP 24/7</li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span><strong>Todo lo incluido en el Plan Básico Móvil</strong></span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Escaneo de códigos de barra por cámara con autocompletado</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Cálculo exacto de utilidades y deducción de costos</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Gestión de ventas y cobros en cuotas</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Importación masiva desde Excel ilimitada</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Alertas automáticas de bajo stock</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Múltiples empleados con roles y permisos</span>
+                            </li>
+                            <li>
+                                <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Soporte prioritario VIP</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -648,8 +364,8 @@
 
     <div class="modal-overlay" id="contactModal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()">×</button>
-            <h3>¡Casi listo!</h3>
+            <button class="close-modal" onclick="closeContactModal()">×</button>
+            <h3>Casi listo</h3>
             <p>Déjanos tus datos para ayudarte a configurar tu cuenta.</p>
             
             <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
@@ -665,7 +381,7 @@
                 <input type="hidden" id="selectedPlan" value="">
                 
                 <button type="submit" class="modal-submit">
-                    💬 Enviar por WhatsApp
+                    Enviar por WhatsApp
                 </button>
             </form>
         </div>
@@ -673,68 +389,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
-    <script>
-        VANTA.NET({
-            el: "#vanta-bg", mouseControls: true, touchControls: true, gyroControls: false,
-            minHeight: 200.00, minWidth: 200.00, scale: 1.00, scaleMobile: 1.00,
-            color: 0x3b82f6, backgroundColor: 0x0f172a, points: 10.00, maxDistance: 25.00, spacing: 20.00
-        });
-
-        const modal = document.getElementById('contactModal');
-        const selectedPlanInput = document.getElementById('selectedPlan');
-
-        function switchPricingPlatform(platform) {
-            const pcGrid = document.getElementById('pricing-pc');
-            const mobileGrid = document.getElementById('pricing-mobile');
-            const btnPc = document.getElementById('btn-toggle-pc');
-            const btnMobile = document.getElementById('btn-toggle-mobile');
-
-            if (platform === 'pc') {
-                if (pcGrid) pcGrid.style.display = 'grid';
-                if (mobileGrid) mobileGrid.style.display = 'none';
-                if (btnPc) btnPc.classList.add('active');
-                if (btnMobile) btnMobile.classList.remove('active');
-            } else {
-                if (pcGrid) pcGrid.style.display = 'none';
-                if (mobileGrid) mobileGrid.style.display = 'grid';
-                if (btnMobile) btnMobile.classList.add('active');
-                if (btnPc) btnPc.classList.remove('active');
-            }
-        }
-
-        function openModal(planName) {
-            selectedPlanInput.value = planName;
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.getElementById('whatsappForm').reset(); 
-        }
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-
-            const TU_NUMERO_DE_WHATSAPP = "584125527746"; 
-
-            const comercio = document.getElementById('comercioName').value;
-            const telefono = document.getElementById('phoneNumber').value;
-            const plan = selectedPlanInput.value;
-
-            const mensaje = `¡Hola! 👋 Me interesa el *${plan}* de CuadraYa.%0A%0A*Nombre del Comercio:* ${comercio}%0A*Mi Teléfono:* ${telefono}%0A%0AQuiero activar mi cuenta.`;
-
-            const url = `https://wa.me/${TU_NUMERO_DE_WHATSAPP}?text=${mensaje}`;
-            window.open(url, '_blank');
-
-            closeModal();
-        }
-    </script>
+    <script src="js/vanta-init.js"></script>
+    <script src="js/price.js"></script>
     <script src="js/modal.js?v=0.2.3"></script>
 </body>
 </html>
