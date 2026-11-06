@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CuadraYa - Sistema de Gestión de Inventario POS</title>
     <link rel="shortcut icon" href="assets/icono_app.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/modal.css">
     <meta property="og:type" content="website">
     <meta property="og:title" content="CuadraYa - Disponible para Android, Windows y Linux">
     <meta property="og:description" content="Sistema de inventario y punto de venta POS multiplataforma. Controla tus ventas en PC y móvil en tiempo real u offline.">
@@ -19,19 +20,18 @@
     <meta name="theme-color" content="#0f172a">
 </head>
 <body>
-    <main id="vanta-bg">
-        <div class="content-wrapper">
-            <header>
-                <div class="logo-placeholder">CuadraYa</div>
+    <div class="page-bg" id="vanta-bg">
+        <header>
+            <a href="index.html" class="logo-placeholder">CuadraYa</a>
+            <nav>
+                <a href="characteristics.html">Características</a>
+                <a href="price.html">Precios</a>
+                <a href="support.html">Soporte</a>
+                <a href="#descargar" class="download-btn">Descargar</a>     
+            </nav>
+        </header>
 
-                <section>
-                    <a href="characteristics.html">Características</a>
-                    <a href="price.html">Precios</a>
-                    <a href="support.html">Soporte</a>
-                    <a href="#descargar" class="download-btn">Descargar</a>     
-                </section>
-            </header>
-
+        <main class="content-wrapper">
             <section class="hero">
                 <div class="title">
                     <h1>Gestiona tu comercio en Android, Windows y Linux</h1>
@@ -41,14 +41,17 @@
                         <p class="badge">PC: Windows y Linux (Offline-First)</p>
                         <p class="badge">Móvil: Android (Teléfonos y Tablets)</p>
                     </div>
+                    <div class="hero-cta">
+                        <a href="#descargar" class="download-btn">Descargar Ahora</a>
+                    </div>
                 </div>
 
                 <div class="hero-image">
                     <img src="assets/promotion.png" alt="Promoción de CuadraYa">
                 </div>
             </section>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <section id="features" class="features-section">
         <div class="features-container">
